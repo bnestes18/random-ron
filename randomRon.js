@@ -4,7 +4,7 @@
     let button = document.querySelector('button');
 
     function getQuote() {
-        fetch('http://ron-swanson-quotes.herokuapp.com/v2/quotes')
+        fetch('https://ron-swanson-quotes.herokuapp.com/v2/quotes')
         .then(function (response) {
             if (response.ok) {
                 return response.json();
