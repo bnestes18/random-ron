@@ -12,7 +12,7 @@
                 return Promise.reject(response)
             }
         }).then(function (data) {
-            quoteEl.textContent = data;
+            quoteEl.textContent = data[0];
         }).catch(function (err) {
             quoteEl.textContent = 'Uh-oh. Something went wrong!';
         })
