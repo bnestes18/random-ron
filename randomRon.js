@@ -18,8 +18,10 @@
         })
     }
 
+    // Generate a quote on initial load
     getQuote();
     
+    // Generate another quote on click event
     button.addEventListener('click', getQuote, false);
     
 
