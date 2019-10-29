@@ -17,7 +17,6 @@
                 }
             }).then(function (data) {
                 generateQuotes(data);
-                quoteEl.textContent = data[0];
             }).catch(function (err) {
                 quoteEl.textContent = 'Uh-oh. Something went wrong!';
             })
@@ -25,11 +24,14 @@
 
     function generateQuotes(data) { 
         if (quotesArray.length === quoteSize) {
-            return quotesArray;
+            quotesArray = [];
         }
         if (!quotesArray.includes(data[0])) {
             quotesArray.push(data[0]);
-        }   
+            quoteEl.textContent = data[0];
+        } else {
+            getQuote();
+        }
     }
 
     // Generate a quote on initial load
