@@ -4,11 +4,12 @@
     let quoteEl = document.querySelector('blockquote');
     let button = document.querySelector('button');
     let quotesArray = [];
+    let url = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes';
     
 
-
+// Gets a fresh quote from url
     function getQuote() {
-        fetch('https://ron-swanson-quotes.herokuapp.com/v2/quotes')
+        fetch(url)
             .then(function (response) {
                 if (response.ok) {
                     return response.json();
@@ -22,6 +23,7 @@
             })
         }
 
+    // Populate quotesArray with unique quote and write new quote to the DOM; reset the quotesArray after it reaches 50 quotes
     function generateQuotes(data) { 
         if (quotesArray.length === quoteSize) {
             quotesArray = [];
