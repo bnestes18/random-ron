@@ -19,7 +19,7 @@ function generateQuote() {
         if (quotesList.length > 49) {
             quotesList.shift();
         }
-        
+
         let newQuote = data[0];
         // If newly generated quote is a duplicate, then generate a new quote.
         if (quotesList.includes(newQuote)) {
@@ -28,7 +28,6 @@ function generateQuote() {
         }
         // Otherwise, push the new quote into the array and render new quote to the DOM.
         quotesList.push(newQuote);
-        console.log(quotesList);
         quote.textContent = newQuote;
     }).catch(function(error) {
         // Render a basic error message to the DOM
