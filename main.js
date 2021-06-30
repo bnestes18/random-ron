@@ -1,6 +1,7 @@
 // VARIABLES
 let quote = document.querySelector('blockquote');
-let button = document.querySelector('button')
+let button = document.querySelector('button');
+let quotesList = [];
 
 // FUNCTIONS
 function generateQuote() {
@@ -13,7 +14,15 @@ function generateQuote() {
             throw response.statusText;
         }
     }).then(function(data) {
-        quote.textContent = data[0];
+        let newQuote = data[0];
+        // If newly generated quote is a duplicate, then generate a new quote.
+        if (quotesList.includes(newQuote)) {
+            generateQuote();
+            return;
+        }
+        // Otherwise, push the new quote into the array and render new quote to the DOM.
+        quotesList.push(newQuote);
+        quote.textContent = newQuote;
     }).catch(function(error) {
         // Render a basic error message to the DOM
         quote.textContent = `Error: ${error}`
